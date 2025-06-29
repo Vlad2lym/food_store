@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { ref, nextTick } from 'vue'
-    import CustomButton from './CustomButton.vue'
+    import CustomButton from '@/components/UI/CustomButton.vue'
     import IconSearch from '../icons/IconSearch.vue'
     
     const isExpanded = ref(false)
@@ -23,14 +23,13 @@
 <template>
   <div class="search-container" :class="{ expanded: isExpanded }">
     <CustomButton
-      v-if="!isExpanded"
       class="search-button"
       @click="expandSearch"
     >
       <IconSearch/>
     </CustomButton>
     
-    <div v-else class="search-input-wrapper">
+    <div class="search-input-wrapper">
       <input
         ref="input"
         v-model="searchQuery"
@@ -61,32 +60,28 @@
 .search-button {
   width: var(--size);
   height: var(--size);
-  border: none;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  color: #0f0f0f;
-  cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s ease;
-}
-
-.search-button:hover {
-  background-color: #d0d0d0;
-}
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 0.2s ease 0.1s, transform 0.3s ease 0.1s;}
 
 .search-input-wrapper {
-  position: relative;
   height: 100%;
   width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 0.2s ease, transform 0.3s ease;
 }
 
 .search-input {
   width: 100%;
   height: 100%;
-  border: 1px solid #282828;
+  border: 1px solid #d0d0d0;
   border-radius: 8px;
   padding: 0 40px 0 15px;
   font-size: 16px;
@@ -108,5 +103,17 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+
+.search-container.expanded .search-button {
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+}
+
+.search-container:not(.expanded) .search-input-wrapper {
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
 }
 </style>

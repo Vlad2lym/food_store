@@ -2,7 +2,6 @@
 import CustomButton from './UI/CustomButton.vue';
 import IconMenu from './icons/IconMenu.vue';
 import IconCart from './icons/IconCart.vue';
-import IconSearch from './icons/IconSearch.vue';
 import CustomInput from './UI/CustomInput.vue';
 import { onMounted, ref, watch } from 'vue';
 const props = defineProps({
