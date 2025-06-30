@@ -32,9 +32,9 @@ const toggleCart = (isOpen: boolean) => {
     @toggle-cart="toggleCart"
     :show-cart="showCart"
     class="header"
-    :class="{ 'scrolled': isScrolled }"
+    :class="{ 'scrolled': isScrolled, 'cart--opened': showCart }"
   />
-  <main>
+  <main :class="{ 'main--cart-opened': showCart }">
     <div class="menu" :class="{'menu--cart-close': !showCart}">
       <h1>Суши и роллы</h1>
       <div class="menu__content"></div>
@@ -51,19 +51,6 @@ const toggleCart = (isOpen: boolean) => {
   position: sticky;
   top: 0;
   z-index: 11;
-  margin: 0 auto 60px;
-  transition: all 0.6s ease;
-}
-
-.header.scrolled {
-  box-shadow: 0px 1px 8px 4px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 1600px) {
-  .header.scrolled {
-    max-width: 100%;
-    padding: 0 15px;
-  }
 }
 
 main {
@@ -74,6 +61,13 @@ main {
   display: flex;
   position: relative;
   overflow: hidden;
+  transition: all 0.8s ease;
+}
+
+@media (min-width: 1675px) {
+  main.main--cart-opened {
+    max-width: 1675px;
+  }
 }
 
 .menu {

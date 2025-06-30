@@ -47,43 +47,68 @@ function updateButtonWidth() {
 </script>
 
 <template>
-  <header>
-    <div class="header__btns-group-left">
-        <CustomButton>
-            <IconMenu/>
-        </CustomButton>
-        <CustomButton>RU</CustomButton>
-        <CustomInput></CustomInput>
-    </div>
-    <div class="header__cart-btn">
-        <CustomButton
-            :active="showCart"
-            class="cart-btn"    
-            :style="{ '--target-width': targetWidth + 'px' }"
-            @click="$emit('toggle-cart', showCart)"
-        >
-            <IconCart class="cart-icon" />
-            <div class="price-container">
-                <Transition name="price-change">
-                    <span class="price" :key="cartPrice">{{ cartPrice }}</span>
-                </Transition>
+    <header>
+        <div class="header-container">
+            <div class="header__btns-group-left">
+                <CustomButton>
+                    <IconMenu/>
+                </CustomButton>
+                <CustomButton>RU</CustomButton>
+                <CustomInput></CustomInput>
             </div>
-            <span class="currency">₸</span>
-        </CustomButton>
-    </div>
-  </header>
+            <div class="header__cart-btn">
+                <CustomButton
+                    :active="showCart"
+                    class="cart-btn"    
+                    :style="{ '--target-width': targetWidth + 'px' }"
+                    @click="$emit('toggle-cart', showCart)"
+                >
+                    <IconCart class="cart-icon" />
+                    <div class="price-container">
+                        <Transition name="price-change">
+                            <span class="price" :key="cartPrice">{{ cartPrice }}</span>
+                        </Transition>
+                    </div>
+                    <span class="currency">₸</span>
+                </CustomButton>
+            </div>
+        </div>
+    </header>
 </template>
 
 <style scoped>
 header {
+    width: 100%;
+}
+
+header.scrolled {
+  box-shadow: 0px 1px 8px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
     max-width: 1300px;
     min-width: 1140px;
     height: 85px;
+    margin: 0 auto 60px;
     padding: 0 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
+    transition: all 0.8s ease;
+}
+
+@media (min-width: 1675px) {
+    header.cart--opened .header-container {
+        max-width: 1675px;
+    }
+}
+
+@media (min-width: 1600px) {
+  header.scrolled .header-container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
 }
 
 .header__btns-group-left {
