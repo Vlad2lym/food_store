@@ -28,7 +28,13 @@ const props = defineProps({
   color: #0f0f0f;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.custom-button::v-deep svg {
+    height: 15px;
+    width: 15px;
 }
 
 .custom-button:hover {

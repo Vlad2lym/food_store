@@ -48,16 +48,21 @@ const toggleCart = (isOpen: boolean) => {
 
 <style scoped>
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 11;
   margin: 0 auto 60px;
   transition: all 0.6s ease;
+}
+
+.header.scrolled {
+  box-shadow: 0px 1px 8px 4px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 1600px) {
   .header.scrolled {
     max-width: 100%;
     padding: 0 15px;
-    position: sticky;
-    top: 0;
   }
 }
 
@@ -81,20 +86,19 @@ main {
 }
 
 .menu__content {
-  align-self: center;
-  padding: 0 15px;
   background: #f5f5f5;
-  width: 90%;
+  width: 100%;
   height: 100%;
 }
 
 .menu--cart-close {
-  margin-right: -375px;
+  margin-right: -390px;
 }
 
 .cart {
   width: 375px;
   height: auto;
+  margin-left: 15px;
   background: #fff;
   border-left: 1px solid rgba(0, 0, 0, 0.3);
   transform: translateX(125%);

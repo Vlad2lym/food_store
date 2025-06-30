@@ -1,6 +1,8 @@
 #app, * {
+  --font-app: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   font-weight: normal;
+  font-family: var(--font-app);
 }
 

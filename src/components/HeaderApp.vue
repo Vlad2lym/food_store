@@ -40,7 +40,7 @@ function updateButtonWidth() {
   tempSpan.innerText = props.cartPrice + ' ₸';
   document.body.appendChild(tempSpan);
   
-  targetWidth.value = tempSpan.offsetWidth + 75;
+  targetWidth.value = tempSpan.offsetWidth + 50;
   
   document.body.removeChild(tempSpan);
 }
@@ -83,6 +83,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
 }
 
 .header__btns-group-left {
@@ -113,6 +114,7 @@ header {
   --target-width: var(--initial-width);
   
   display: inline-flex;
+  align-items: center;
   gap: 8px;
   padding: 10px 15px;
   overflow: hidden;
@@ -139,12 +141,13 @@ header {
 
 .price {
   margin-right: 4px;
+  font-weight: 600;
 }
 
 .currency {
   position: absolute;
   right: 15px;
-  height: 20px;
+  font-weight: 600;
 }
 
 .price-change-enter-active,
