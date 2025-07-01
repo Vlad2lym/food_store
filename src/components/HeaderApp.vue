@@ -98,9 +98,9 @@ header.scrolled {
     transition: all 0.8s ease;
 }
 
-@media (min-width: 1675px) {
+@media (min-width: 1691px) {
     header.cart--opened .header-container {
-        max-width: 1675px;
+        max-width: 1691px;
     }
 }
 

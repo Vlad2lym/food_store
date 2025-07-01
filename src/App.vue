@@ -64,9 +64,9 @@ main {
   transition: all 0.8s ease;
 }
 
-@media (min-width: 1675px) {
+@media (min-width: 1691px) {
   main.main--cart-opened {
-    max-width: 1675px;
+    max-width: 1691px;
   }
 }
 
@@ -86,7 +86,7 @@ main {
 }
 
 .menu--cart-close {
-  margin-right: -390px;
+  margin-right: -391px;
 }
 
 .cart {
