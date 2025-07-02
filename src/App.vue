@@ -2,9 +2,24 @@
 import HeaderApp from './components/HeaderApp.vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 
+enum Languages {
+  RU = 'RU',
+  EN = 'EN',
+  FR = 'FR',
+  DE = 'DE',
+}
+
 const cartPrice = ref<number>(0);
 const showCart = ref<boolean>(false);
 const isScrolled = ref(false);
+const currentLanguage = ref(Languages.RU)
+
+const languages = [
+  { id: 0, title: 'RU', value: Languages.RU },
+  { id: 1, title: 'EN', value: Languages.EN },
+  { id: 2, title: 'FR', value: Languages.FR },
+  { id: 3, title: 'DE', value: Languages.DE }
+]
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 10
@@ -28,8 +43,10 @@ const toggleCart = (isOpen: boolean) => {
 
 <template>
   <HeaderApp 
-    :cartPrice="cartPrice" 
+    :cartPrice="cartPrice"
+    :language-list="languages"
     @toggle-cart="toggleCart"
+    @select-lang="(lang) => currentLanguage = lang?.value"
     :show-cart="showCart"
     class="header"
     :class="{ 'scrolled': isScrolled, 'cart--opened': showCart }"

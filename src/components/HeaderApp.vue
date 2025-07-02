@@ -3,6 +3,7 @@ import CustomButton from './UI/CustomButton.vue';
 import IconMenu from './icons/IconMenu.vue';
 import IconCart from './icons/IconCart.vue';
 import CustomInput from './UI/CustomInput.vue';
+import CustomSelect from './UI/CustomSelect.vue';
 import { onMounted, ref, watch } from 'vue';
 const props = defineProps({
     cartPrice: {
@@ -14,10 +15,18 @@ const props = defineProps({
         type: Boolean,
         required: false,
         default: false
+    },
+    languageList: {
+        type: Array<{
+            id: number;
+            title: string;
+            value: any;
+        }>,
+        required: true,
     }
 });
 
-const emit = defineEmits(['toggle-cart']);
+const emit = defineEmits(['toggle-cart', 'select-lang']);
 
 const targetWidth = ref(0);
 
@@ -53,7 +62,7 @@ function updateButtonWidth() {
                 <CustomButton>
                     <IconMenu/>
                 </CustomButton>
-                <CustomButton>RU</CustomButton>
+                <CustomSelect :options="props.languageList" @change="(e) => $emit('select-lang', e)" />
                 <CustomInput></CustomInput>
             </div>
             <div class="header__cart-btn">
