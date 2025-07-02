@@ -87,6 +87,12 @@ main {
   }
 }
 
+@media (min-width: 1400px) and (max-width: 1691px) {
+  main.main--cart-opened {
+    max-width: 100%;
+  }
+}
+
 .menu {
   flex: 1;
   height: 2500px;

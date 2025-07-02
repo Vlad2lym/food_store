@@ -113,6 +113,12 @@ header.scrolled {
     }
 }
 
+@media (min-width: 1400px) and (max-width: 1691px) {
+  header.cart--opened .header-container {
+    max-width: 100%;
+  }
+}
+
 @media (min-width: 1600px) {
   header.scrolled .header-container {
     max-width: 100%;
