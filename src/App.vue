@@ -52,7 +52,7 @@ const toggleCart = (isOpen: boolean) => {
     :class="{ 'scrolled': isScrolled, 'cart--opened': showCart }"
   />
   <main :class="{ 'main--cart-opened': showCart }">
-    <div class="menu" :class="{'menu--cart-close': !showCart}">
+    <div class="menu" :class="{'menu--cart-close': !showCart, 'menu--cart-open': showCart}">
       <h1>Суши и роллы</h1>
       <div class="menu__content"></div>
     </div>
@@ -96,7 +96,6 @@ main {
 .menu {
   flex: 1;
   height: 2500px;
-  transition: margin-right 0.8s ease;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -108,8 +107,37 @@ main {
   height: 100%;
 }
 
+@keyframes resizeMenu {
+  0% {
+    margin-right: -391px;
+  }
+  8% {
+    margin-right: -391px;
+  }
+  100% {
+    margin-right: 0px;
+  }
+}
+
+@keyframes resizeMenuReverse {
+  0% {
+    margin-right: 0px;
+  }
+  82% {
+    margin-right: -391px;
+  }
+  100% {
+    margin-right: -391px;
+  }
+}
+
+.menu--cart-open {
+  animation: resizeMenu 0.8s ease normal;
+}
+
 .menu--cart-close {
   margin-right: -391px;
+  animation: resizeMenuReverse 0.8s ease normal;
 }
 
 .cart {
