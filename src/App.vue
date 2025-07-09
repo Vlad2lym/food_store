@@ -77,7 +77,7 @@ main {
   min-width: 1140px;
   display: flex;
   position: relative;
-  overflow: hidden;
+  overflow-x: clip;
   transition: all 0.8s ease;
 }
 
@@ -142,7 +142,7 @@ main {
 
 .cart {
   width: 375px;
-  height: auto;
+  height: calc(100vh - 145px);
   margin-left: 15px;
   background: #fff;
   border-left: 1px solid rgba(0, 0, 0, 0.3);
@@ -151,6 +151,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: sticky;
+  top: 145px;
 }
 
 .cart--open {
